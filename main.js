@@ -9,40 +9,48 @@
 
 
 
+function giochiamo(){
+  var sceltaGame = prompt("seleziona il gioco al quale vuoi giocare. Ti avverto, potrebbe essere divertentissimo: digita 1 per giocare a 'scopri quale numero è il maggiore'; 2 per giocare a 'ti stampo in ordine due parole, ma prima quella più corta'; 3 per giocare a 'ti faccio la somma di 5 numeri'")
+  var result;
+  if (sceltaGame == 1) {
+      var primoNum = parseFloat(prompt("inserisci primo numero"));
+      var secondoNum = parseFloat(prompt("inserisci secondo numero"));
+      var numOut;
+      if (primoNum > secondoNum) {
+        numOut = primoNum;
+      }else if (primoNum < secondoNum) {
+        numOut = secondoNum;
+      }else {
+        numOut = "i numeri sono uguali"
+      }
+      result = numOut;
 
+      console.log(numOut);
 
-//ex1
+  }else if (sceltaGame == "2") {
+      var primaParola = prompt("inserisci una parola");
+      var secondaParola = prompt("inserisci una seconda parola");
+      var parolaOut;
+      if (primaParola.length > secondaParola.length) {
+        parolaOut = secondaParola + " " + primaParola;
+      }else if (primaParola.length < secondaParola.length) {
+        parolaOut = primaParola + " " + secondaParola;
+      }else {
+        parolaOut ="le due parole sono uguali"
+      }
+      result = parolaOut;
 
-var primoNum = parseFloat(prompt("inserisci primo numero"));
-var secondoNum = parseFloat(prompt("inserisci secondo numero"));
-var numOut;
-if (primoNum > secondoNum) {
-  numOut = primoNum;
-}else if (primoNum < secondoNum) {
-  numOut = secondoNum;
-}else {
-  numOut = "i numeri sono uguali"
+      console.log(parolaOut);
+
+  }else if (sceltaGame == 3) {
+      var sum = parseFloat(prompt("inserisci primo numero")) + parseFloat(prompt("inserisci secondo numero")) + parseFloat(prompt("inserisci terzo numero")) + parseFloat(prompt("inserisci quarto numero")) + parseFloat(prompt("inserisci quinto numero"));
+      console.log(sum);
+      result = sum;
+  }else {
+    alert ("we, Luigi, devi digitare SOLTANTO '1' '2' oppure '3'. riprova");
+    giochiamo();
+  }
+  return result;
 }
 
-console.log(numOut);
-
-//ex2
-
-var primaParola = prompt("inserisci una parola");
-var secondaParola = prompt("inserisci una seconda parola");
-var parolaOut;
-if (primaParola.length > secondaParola.length) {
-  parolaOut = secondaParola + " " + primaParola;
-}else if (primaParola.length < secondaParola.length) {
-  parolaOut = primaParola + " " + secondaParola;
-}else {
-  parolaOut ="le due parole sono uguali"
-}
-
-console.log(parolaOut);
-
-// ex3
-
-var sum = parseFloat(prompt("inserisci primo numero")) + parseFloat(prompt("inserisci secondo numero")) + parseFloat(prompt("inserisci terzo numero")) + parseFloat(prompt("inserisci quarto numero")) + parseFloat(prompt("inserisci quinto numero"));
-
-console.log(sum);
+document.getElementById("ciao").innerHTML = giochiamo();
