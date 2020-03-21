@@ -48,7 +48,7 @@ function giochiamo(){
       result = sum;
   }else {
     alert ("we, Luigi, devi digitare SOLTANTO '1' '2' oppure '3'. riprova");
-    giochiamo();
+    return giochiamo();
   }
   return result;
 }
